@@ -1,6 +1,8 @@
 <?
-  $n = 10;
+  $n = 5;
   var_dump(fibonacci($n));
+
+  var_dump(recursive_fib_arr($n));
 
   function fibonacci($n)
   {
@@ -27,4 +29,24 @@
       return $result;
   }
 
+
+  function recursive_fib_arr($n) {
+    $result = [];
+    for ($i = 0; $i <= $n; $i++) {
+      $result[$i] = recursive_fib($i);
+    }
+    return $result;
+  }
+
+  function recursive_fib($n)
+  {
+    switch ($n) {
+    case 0:
+      return 0;
+    case 1:
+      return 1;
+    default:
+      return recursive_fib($n - 1) + recursive_fib($n - 2);
+    }
+  }
 ?>
