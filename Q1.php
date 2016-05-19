@@ -1,28 +1,18 @@
 <?
 
-  $n = 10;
-    while (true) {
+  $n = 11;
+  while (true) {
     $n_str = (string) $n;
     $binary_n = decbin($n);
     $octal_n = decoct($n);
 
-
-    if ($n_str == reverse($n_str) && $binary_n == reverse($binary_n) && $octal_n == reverse($octal_n)) {
+    if ($n_str == strrev($n_str) && $binary_n == strrev($binary_n) && $octal_n == strrev($octal_n)) {
       echo $n. "\n";
-      exit();
+      break;
     }
-    $n++;
+    //２進数の場合回文になるのは、右が必ず1になる
+    $n += 2;
 
 
-  }
-
-  function reverse($n)
-  {
-
-    $str = "";
-    for ($i = strlen($n) - 1; $i >=  0; $i--) {
-      $str .= $n[$i];
-    }
-    return $str;
   }
 ?>
