@@ -2,6 +2,7 @@
   $n = 5;
   var_dump(fibonacci($n));
 
+  $memp = [];
   var_dump(recursive_fib_arr($n));
 
   function fibonacci($n)
@@ -40,13 +41,15 @@
 
   function recursive_fib($n)
   {
+    global $memo;
+
     switch ($n) {
     case 0:
-      return 0;
+      return $memo[$n] = 0;
     case 1:
-      return 1;
+      return $memo[$n] =  1;
     default:
-      return recursive_fib($n - 1) + recursive_fib($n - 2);
+      return $memo[$n] = recursive_fib($n - 1) + recursive_fib($n - 2);
     }
   }
 ?>
